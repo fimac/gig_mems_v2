@@ -1,7 +1,9 @@
 <div>
-<form phx-change="search" class="search-form">
-  <%= text_input :search_field, :query, placeholder: "Search by artist", autofocus: true, "phx-debounce": "300" %>
-</form>
+ <%= form_for :gig_search, "#", [phx_submit: :search], fn f -> %>
+ <%= text_input f, :query, placeholder: "Search by artist", autofocus: true%>
+ <%= submit "Search" %>
+ <% end %>
+<%# TODO Don't use a table to display this info. Needs to be mobile friendly %>
 <%= for gig <- @gigs do %>
   <table>
     <thead>

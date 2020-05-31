@@ -12,7 +12,7 @@ defmodule GigMemsV2Web.GigSearchLive do
     {:ok, assign(socket, gigs: [])}
   end
 
-  def handle_event("search", %{"search_field" => %{"query" => query}}, socket) do
+  def handle_event("search", %{"gig_search" => %{"query" => query}}, socket) do
     gigs = GigApi.get_gig(query) |> GigApi.parse_response()
     {:noreply, assign(socket, gigs: gigs)}
   end
