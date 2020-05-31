@@ -1,0 +1,25 @@
+<div>
+<form phx-change="search" class="search-form">
+  <%= text_input :search_field, :query, placeholder: "Search by artist", autofocus: true, "phx-debounce": "300" %>
+</form>
+<%= for gig <- @gigs do %>
+  <table>
+    <thead>
+      <tr>
+        <th>Artist</th>
+        <th>date</th>
+        <th>Venue</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><%= gig.artist %></td>
+        <td><%= gig.date %></td>
+        <td><%= gig.venue %></td>
+        <td><%= gig.city %></td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+</div>

@@ -21,6 +21,7 @@ defmodule GigMemsV2Web do
     quote do
       use Phoenix.Controller, namespace: GigMemsV2Web
 
+      import Phoenix.LiveView.Controller
       import Plug.Conn
       import GigMemsV2Web.Gettext
       alias GigMemsV2Web.Router.Helpers, as: Routes
@@ -35,7 +36,7 @@ defmodule GigMemsV2Web do
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
-
+      import Phoenix.LiveView.Helpers
       # Include shared imports and aliases for views
       unquote(view_helpers())
     end
@@ -44,7 +45,7 @@ defmodule GigMemsV2Web do
   def router do
     quote do
       use Phoenix.Router
-
+      import Phoenix.LiveView.Router
       import Plug.Conn
       import Phoenix.Controller
     end

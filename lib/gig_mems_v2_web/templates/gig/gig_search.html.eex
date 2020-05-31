@@ -1,0 +1,4 @@
+<div>
+Search Page
+<%= live_render(@conn, GigMemsV2Web.GigSearchLive) %>
+</div>
